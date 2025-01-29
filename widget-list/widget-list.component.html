@@ -1,0 +1,29 @@
+<div class="container mt-3">
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="search-addon">
+      <i class="bi bi-search"></i>
+    </span>
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Search widgets..."
+      aria-label="Search"
+      aria-describedby="search-addon"
+      [(ngModel)]="searchText"
+    />
+  </div>
+  <div class="row">
+    <div class="col-md-4 mb-3" *ngFor="let widget of filteredWidgets">
+      <div
+        class="card h-100"
+        (click)="navigateToConfig(widget.route)"
+        style="cursor: pointer"
+      >
+        <div class="card-body">
+          <h5 class="card-title">{{ widget.name }}</h5>
+          <p class="card-text">Configure your {{ widget.name }} widget.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
